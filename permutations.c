@@ -6,10 +6,10 @@
  * Autor: Carlos Aguirre
  * Version: 1.1
  * Fecha: 21-09-2019
- *
+ * 
  */
 
-
+ 
 #include "permutations.h"
 #include <stdio.h>
 #include <stdlib.h>
