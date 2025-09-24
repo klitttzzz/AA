@@ -28,7 +28,12 @@ int InsertSort(int* array, int ip, int iu)
 /***************************************************/
 int BubbleSort(int* array, int ip, int iu)
 {
-  /* Your code */
+  int temp, i;
+  for (i = ip; i < iu; i++)
+  {
+    if(array[i]<array[i+1])
+  }
+  
 }
 
 
