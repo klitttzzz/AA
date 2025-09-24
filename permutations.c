@@ -9,7 +9,6 @@
  *
  */
 
-
 #include "permutations.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -29,8 +28,7 @@
 /***************************************************/
 int random_num(int inf, int sup)
 {
-return inf + rand() % (sup - inf + 1);
-
+  return inf + rand() % (sup - inf + 1);
 }
 
 /***************************************************/
@@ -46,27 +44,24 @@ return inf + rand() % (sup - inf + 1);
 /* that contains the permitation                   */
 /* or NULL in case of error                        */
 /***************************************************/
-int* generate_perm(int N)
+int *generate_perm(int N)
 {
-  int i = 0, *array = NULL;
+  int i = 0, *perm = NULL, j = 0;
 
-  array = (int*) malloc(N *sizeof(int));
-  if(!array) {
+  perm = (int *)malloc(N * sizeof(perm[0]));
+  if (perm == NULL)
     return NULL;
+
+  for (i = 0; i < N; i++)
+    perm[i] = i + 1;
+
+  for (i = 0; i < N; i++)
+  {
+    j = random_num(0, N - 1);
+    swap(&perm[i], &perm[j]);
   }
 
-  for(i = 0; i < N; i++) {
-    array[i] = i + 1;
-  }
-
-  for(i = 0; i < N; i++) {
-    int j = random_num(0, N - 1);
-    int aux = array[i];
-    array[i] = array[j];
-    array[j] = aux;
-  }
-
-  return array;
+  return perm;
 }
 
 /***************************************************/
@@ -84,24 +79,31 @@ int* generate_perm(int N)
 /* to each of the permutations                     */
 /* NULL en case of error                           */
 /***************************************************/
-int** generate_permutations(int n_perms, int N)
+int **generate_permutations(int n_perms, int N)
 {
-  int i = 0, **array = NULL;
+  int i = 0, **perm = NULL;
 
-  array = (int**) malloc(n_perms *sizeof(int*));
-  if(!array) {
+  perm = (int **)malloc(n_perms * sizeof(perm[0]));
+  if (perm == NULL)
     return NULL;
-  }
 
-  for(i = 0; i < n_perms; i++) {
-    array[i] = generate_perm(N);
-    if(!array[i]) {
-      for(--i; i >= 0; i--) {
-        free(array[i]);
-      }
-      free(array);
+  for (i = 0; i < n_perms; i++)
+  {
+    perm[i] = generate_perm(N);
+    if (!perm[i])
+    {
+      for (--i; i >= 0; i--)
+        free(perm[i]);
+      free(perm);
       return NULL;
     }
   }
-  return array;
+  return perm;
+}
+
+void swap(int *orig, int *dest)
+{
+  int aux = *dest;
+  *dest = *orig;
+  *orig = aux;
 }
