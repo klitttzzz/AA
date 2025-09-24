@@ -11,6 +11,7 @@
 
 
 #include "sorting.h"
+#include <string.h>
 
 /***************************************************/
 /* Function: InsertSort    Date:                   */
@@ -18,7 +19,13 @@
 /***************************************************/
 int InsertSort(int* array, int ip, int iu)
 {
-  /* Your code */
+int i = 0;
+int j = 0;
+for(i = ip; i < iu; i++) {
+  
+}
+
+
 }
 
 
@@ -28,7 +35,7 @@ int InsertSort(int* array, int ip, int iu)
 /***************************************************/
 int BubbleSort(int* array, int ip, int iu)
 {
-  /* Your code */
+  
 }
 
 
