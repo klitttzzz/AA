@@ -19,13 +19,18 @@
 /***************************************************/
 int InsertSort(int* array, int ip, int iu)
 {
-    if(!array || ip > iu) return ERR;
-int i, j, key;
-int num = 0;
-for (i = ip + 1; i <= iu; i++) {
+  int i, j, key;
+  int num = 0;
+
+  if(!array || ip > iu) return ERR;
+
+  for (i = ip + 1; i <= iu; i++) 
+  {
     key = array[i];
     j = i - 1;
-    while(j >=ip && array[j] > key) {
+
+    while(j >=ip && array[j] > key) 
+    {
         swap_(&array[j], &array[j + 1]);
         j--;
         num++;
@@ -44,18 +49,25 @@ return num;
 /***************************************************/
 int BubbleSort(int* array, int ip, int iu)
 {
- int temp, i;
-  for (i = ip; i < iu; i++)
-  {
-    if(array[i]<array[i+1])
-  }  
+  int num = 0, i, j;
+
+  if (!array || ip > iu) return ERR;
+
+  for (i = ip; i < iu; i++) 
+    for (j = ip; j < iu - i ; j++) 
+      if (array[j] > array[j + 1]) {
+        swap_(array+j, array+j+1);
+        num++;
+      }
+
+  return num;
 }
 
 void swap_(int *orig, int *dest) {
     int aux = *orig;
     *orig = *dest;
     *dest = aux;
- 
+}
 
 
 
