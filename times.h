@@ -20,6 +20,8 @@
 #endif
 
 #include "sorting.h"
+#include "permutations.h"
+
 
 /* type definitions */
 typedef struct time_aa {
