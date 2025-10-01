@@ -44,14 +44,18 @@ return num;
 /***************************************************/
 int BubbleSort(int* array, int ip, int iu)
 {
-  
+ int temp, i;
+  for (i = ip; i < iu; i++)
+  {
+    if(array[i]<array[i+1])
+  }  
 }
 
 void swap_(int *orig, int *dest) {
     int aux = *orig;
     *orig = *dest;
     *dest = aux;
-}
+ 
 
 
 

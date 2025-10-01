@@ -34,7 +34,7 @@ short generate_sorting_times(pfunc_sort method, char* file,
                                 int num_min, int num_max, 
                                 int incr, int n_perms)
 {
-  /* Your code */
+  
 }
 
 /***************************************************/
