@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "sorting.h": "c",
+        "stdio.h": "c",
+        "times.h": "c"
+    }
+}
