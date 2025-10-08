@@ -53,8 +53,8 @@ int BubbleSort(int* array, int ip, int iu)
 
   if (!array || ip > iu) return ERR;
 
-  for (i = ip; i < iu; i++) 
-    for (j = ip; j < iu - i ; j++) 
+  for (i = ip; i < iu - 1; i++) 
+    for (j = ip; j < iu - i - 1 ; j++)   /*restado - 1 en el primer bucle y en el segundo*/
       if (array[j] > array[j + 1]) {
         swap_(array+j, array+j+1);
         num++;
