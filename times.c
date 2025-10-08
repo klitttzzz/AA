@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include "times.h"
 #include "sorting.h"
+#include "permutations.h"
 
 /***************************************************/
 /* Function: average_sorting_time Date:            */
@@ -24,7 +25,6 @@ short average_sorting_time(pfunc_sort method, int n_perms, int N, PTIME_AA ptime
 {
   int **perms = NULL, i = 0, num = 0;
   clock_t start, end;
-  double total_time = 0.0;
   
   ptime->N = N;
   ptime->n_elems = n_perms;
@@ -33,16 +33,15 @@ short average_sorting_time(pfunc_sort method, int n_perms, int N, PTIME_AA ptime
   perms = generate_permutations(n_perms, N);
   if (perms == NULL) return ERR; /*Comprobación si falla generate_permutations??*/
 
-  num = method(perms[0], 0, N);
-  ptime->average_ob += num;
-  ptime->min_ob = num;
-  ptime->max_ob = num;
-
   start = clock();
   for (i = 0; i < n_perms; i++)
   {
     num = method(perms[i], 0, N);
     ptime->average_ob += num;
+    if(i==0) {
+      ptime->min_ob = num;
+      ptime->max_ob = num;
+    }
     if(ptime->min_ob > num) ptime->min_ob = num;
     if(ptime->max_ob < num) ptime->max_ob = num;
   }
@@ -106,7 +105,7 @@ short save_time_table(char* file, PTIME_AA ptime, int n_times)
   fprintf(f, "\tN\tTime(s)\tAverage_OB\tMax_OB\tMin_OB\n");
   
   for (i = 0; i < n_times; i++)
-    fprintf(f, "\t%d\t%f\t%f\t%d\t%d\n", ptime[i].N, ptime[i].time, ptime[i].average_ob, ptime[i].max_ob, ptime[i].min_ob);
+    fprintf(f, "\t%d\t%f\t%.2f\t%d\t%d\n", ptime[i].N, ptime[i].time, ptime[i].average_ob, ptime[i].max_ob, ptime[i].min_ob);
   
   fclose(f);
 
