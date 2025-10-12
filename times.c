@@ -19,7 +19,16 @@
 /***************************************************/
 /* Function: average_sorting_time Date:            */
 /*                                                 */
-/* Your documentation                              */
+/* Computes average, min, max and time for         */
+/* sorting n_perms permutations of N elements      */
+/*                                                 */
+/* Input:                                          */
+/* pfunc_sort method: sorting function             */
+/* int n_perms: number of permutations             */
+/* int N: number of elements per permutation       */
+/* PTIME_AA ptime: pointer to result struct        */
+/* Output:                                         */
+/* short: OK or ERR                                */
 /***************************************************/
 short average_sorting_time(pfunc_sort method, int n_perms, int N, PTIME_AA ptime)
 {
@@ -31,7 +40,7 @@ short average_sorting_time(pfunc_sort method, int n_perms, int N, PTIME_AA ptime
   ptime->average_ob = 0;
 
   perms = generate_permutations(n_perms, N);
-  if (perms == NULL) return ERR; /*Comprobación si falla generate_permutations??*/
+  if (perms == NULL) return ERR;
 
   start = clock();
   for (i = 0; i < n_perms; i++)
@@ -61,7 +70,18 @@ short average_sorting_time(pfunc_sort method, int n_perms, int N, PTIME_AA ptime
 /***************************************************/
 /* Function: generate_sorting_times Date:          */
 /*                                                 */
-/* Your documentation                              */
+/* Measures and saves sorting times for            */
+/* different input sizes to a file                 */
+/*                                                 */
+/* Input:                                          */
+/* pfunc_sort method: sorting function             */
+/* char* file: output filename                     */
+/* int num_min: min input size                     */
+/* int num_max: max input size                     */
+/* int incr: increment of input size               */
+/* int n_perms: permutations per size              */
+/* Output:                                         */
+/* short: OK or ERR                                */
 /***************************************************/
 short generate_sorting_times(pfunc_sort method, char* file, int num_min, int num_max, int incr, int n_perms)
 {
@@ -77,7 +97,7 @@ short generate_sorting_times(pfunc_sort method, char* file, int num_min, int num
 
   for (j = num_min; j <= num_max; j += incr, i++)
   {
-    if(average_sorting_time(method, n_perms, j, ptime+i) != OK) {     /*Necesario comprobar si lo que devuelve average_sorting es correcto*/
+    if(average_sorting_time(method, n_perms, j, ptime+i) != OK) {
       free(ptime);
       return ERR;
     }
@@ -93,7 +113,14 @@ short generate_sorting_times(pfunc_sort method, char* file, int num_min, int num
 /***************************************************/
 /* Function: save_time_table Date:                 */
 /*                                                 */
-/* Your documentation                              */
+/* Saves timing results to a file                  */
+/*                                                 */
+/* Input:                                          */
+/* char* file: output filename                     */
+/* PTIME_AA ptime: array of results                */
+/* int n_times: number of results                  */
+/* Output:                                         */
+/* short: OK or ERR                                */
 /***************************************************/
 short save_time_table(char* file, PTIME_AA ptime, int n_times)
 {
@@ -111,4 +138,3 @@ short save_time_table(char* file, PTIME_AA ptime, int n_times)
 
   return OK;
 }
-
