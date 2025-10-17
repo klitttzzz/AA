@@ -9,13 +9,21 @@
  *
  */
 
-
 #include "sorting.h"
 #include <string.h>
 
 /***************************************************/
-/* Function: InsertSort    Date:                   */
-/* Your comment                                    */
+/* Function: InsertSort Date:                      */
+/* Authors:                                        */
+/*                                                 */
+/* Sorts an array using the insertion sort method  */
+/*                                                 */
+/* Input:                                          */
+/* int* array: array to sort                       */
+/* int ip: initial position                        */
+/* int iu: final position                          */
+/* Output:                                         */
+/* int: number of swaps or ERR in case of error    */
 /***************************************************/
 int InsertSort(int* array, int ip, int iu)
 {
@@ -49,12 +57,21 @@ int InsertSort(int* array, int ip, int iu)
 return num;
 
 
+  return num;
 }
 
-
 /***************************************************/
-/* Function: SelectSort    Date:                   */
-/* Your comment                                    */
+/* Function: BubbleSort Date:                      */
+/* Authors:                                        */
+/*                                                 */
+/* Sorts an array using the bubble sort method     */
+/*                                                 */
+/* Input:                                          */
+/* int* array: array to sort                       */
+/* int ip: initial position                        */
+/* int iu: final position                          */
+/* Output:                                         */
+/* int: number of swaps or ERR in case of error    */
 /***************************************************/
 int BubbleSort(int* array, int ip, int iu)
 {
@@ -76,14 +93,20 @@ int BubbleSort(int* array, int ip, int iu)
   return num;
 }
 
+/***************************************************/
+/* Function: swap_ Date:                           */
+/* Authors:                                        */
+/*                                                 */
+/* Swaps the values of two integers                */
+/*                                                 */
+/* Input:                                          */
+/* int *orig: pointer to first integer             */
+/* int *dest: pointer to second integer            */
+/* Output:                                         */
+/* None                                            */
+/***************************************************/
 void swap_(int *orig, int *dest) {
     int aux = *orig;
     *orig = *dest;
     *dest = aux;
 }
-
-
-
-
-
-
