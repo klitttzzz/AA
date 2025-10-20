@@ -15,8 +15,8 @@
 #include <stdlib.h>
 
 /***************************************************/
-/* Function: random_num Date:                      */
-/* Authors:                                        */
+/* Function: random_num Date:   01/10/25           */
+/* Authors:Pablo Plaza y Ernest Çelo               */
 /*                                                 */
 /* Rutine that generates a random number           */
 /* between two given numbers                       */
@@ -33,8 +33,8 @@ int random_num(int inf, int sup)
 }
 
 /***************************************************/
-/* Function: generate_perm Date:                   */
-/* Authors:                                        */
+/* Function: generate_perm Date: 01/10/25          */
+/* Authors:Pablo Plaza y Ernest Çelo               */
 /*                                                 */
 /* Rutine that generates a random permutation      */
 /*                                                 */
@@ -66,8 +66,8 @@ int *generate_perm(int N)
 }
 
 /***************************************************/
-/* Function: generate_permutations Date:           */
-/* Authors:                                        */
+/* Function: generate_permutations Date:01/10/25   */
+/* Authors:Pablo Plaza y Ernest Çelo               */
 /*                                                 */
 /* Function that generates n_perms random          */
 /* permutations with N elements                    */
@@ -102,6 +102,18 @@ int **generate_permutations(int n_perms, int N)
   return perm;
 }
 
+/***************************************************/
+/* Function: swap Date: 01/10/25                   */
+/* Authors: Pablo Plaza y Ernest Çelo              */
+/*                                                 */
+/* Swaps the values of two integers                */
+/*                                                 */
+/* Input:                                          */
+/* int *orig: pointer to first integer             */
+/* int *dest: pointer to second integer            */
+/* Output:                                         */
+/* None                                            */
+/***************************************************/
 void swap(int *orig, int *dest)
 {
   int aux = *dest;
