@@ -13,8 +13,8 @@
 #include <string.h>
 
 /***************************************************/
-/* Function: InsertSort Date:  12/10/25            */
-/* Authors: Pablo Plaza y Ernest Çelo              */
+/* Function: InsertSort Date:                      */
+/* Authors:                                        */
 /*                                                 */
 /* Sorts an array using the insertion sort method  */
 /*                                                 */
@@ -23,8 +23,7 @@
 /* int ip: initial position                        */
 /* int iu: final position                          */
 /* Output:                                         */
-/* int:number of OB executions or ERR              */
-/* in case of error                                */
+/* int: number of swaps or ERR in case of error    */
 /***************************************************/
 int InsertSort(int* array, int ip, int iu)
 {
@@ -38,32 +37,20 @@ int InsertSort(int* array, int ip, int iu)
     key = array[i];
     j = i - 1;
 
-    while(j >=ip ) 
+    while(j >=ip && array[j] > key) 
     {
-      num++;
-      if(array[j] > key) 
-      {
-        array[j + 1] = array[j];
+        swap_(&array[j], &array[j + 1]);
         j--;
-      } else 
-      {
-        break;
-      }
-      
+        num++;
     }
-    array[j + 1] = key;
-    
-}
-
-return num;
-
+  }
 
   return num;
 }
 
 /***************************************************/
-/* Function: BubbleSort Date: 12/10/25             */
-/* Authors: Pablo Plaza y Ernest Çelo              */
+/* Function: BubbleSort Date:                      */
+/* Authors:                                        */
 /*                                                 */
 /* Sorts an array using the bubble sort method     */
 /*                                                 */
@@ -76,32 +63,29 @@ return num;
 /***************************************************/
 int BubbleSort(int* array, int ip, int iu)
 {
-  int num = 0, i, j;
-  int swapped = 0;
+  int flag, num = 0, i, j;
 
   if (!array || ip > iu) return ERR;
 
-  for (i = ip; i < iu; i++) 
+  for (i = ip; i < iu - 1; i++)
   {
-    for (j = ip; j < iu - (i - ip); j++)
-    {
-      num++;   
+    flag = 0;
+    for (j = ip; j < iu - i - 1 ; j++)
       if (array[j] > array[j + 1]) {
-        swap_(&array[j], &array[j+ 1]);
-        swapped = 1;                               /*Comprobación de si el primero esta ordenado o no*/
-      } 
-    }
-    if (swapped == 0) {
-      break;
-    }
-}
+        swap_(array+j, array+j+1);
+        num++;
+        flag = 1;
+      }
+    if(flag == 0) return num;
+  }
+    
 
   return num;
 }
 
 /***************************************************/
-/* Function: swap_ Date: 12/10/25                  */
-/* Authors: Pablo Plaza y Ernest Çelo              */
+/* Function: swap_ Date:                           */
+/* Authors:                                        */
 /*                                                 */
 /* Swaps the values of two integers                */
 /*                                                 */

@@ -45,7 +45,7 @@ short average_sorting_time(pfunc_sort method, int n_perms, int N, PTIME_AA ptime
   start = clock();
   for (i = 0; i < n_perms; i++)
   {
-    num = method(perms[i], 0, N - 1); /*Cambio, de N a N - 1*/
+    num = method(perms[i], 0, N ); /*Cambio, de N a N - 1*/
     if(num == ERR)                    /*Comprobación por si falla el method*/
     {
       for(j = 0; j < n_perms; j++)
@@ -68,7 +68,7 @@ short average_sorting_time(pfunc_sort method, int n_perms, int N, PTIME_AA ptime
   ptime->average_ob = ptime->average_ob / n_perms;
 
   for (i = 0; i < n_perms; i++)
-    free(perms[i]);
+    free(perms[i]); 
   free(perms);
 
   return OK;
@@ -139,7 +139,7 @@ short save_time_table(char* file, PTIME_AA ptime, int n_times)
   fprintf(f, "\tN\tTime(s)\tAverage_OB\tMax_OB\tMin_OB\n");
   
   for (i = 0; i < n_times; i++)
-    fprintf(f, "\t%d\t%f\t%.2f\t%d\t%d\n", ptime[i].N, ptime[i].time, ptime[i].average_ob, ptime[i].max_ob, ptime[i].min_ob);
+    fprintf(f, "\t%d\t%f\t%.0f\t%d\t%d\n", ptime[i].N, ptime[i].time, ptime[i].average_ob, ptime[i].max_ob, ptime[i].min_ob);
   
   fclose(f);
 
