@@ -32,7 +32,7 @@
 /***************************************************/
 short average_sorting_time(pfunc_sort method, int n_perms, int N, PTIME_AA ptime)
 {
-  int **perms = NULL, i = 0, num = 0;
+  int **perms = NULL, i = 0, num = 0, j = 0;
   clock_t start, end;
   
   ptime->N = N;
@@ -40,12 +40,19 @@ short average_sorting_time(pfunc_sort method, int n_perms, int N, PTIME_AA ptime
   ptime->average_ob = 0;
 
   perms = generate_permutations(n_perms, N);
-  if (perms == NULL) return ERR;
+  if (perms == NULL) return ERR; 
 
   start = clock();
   for (i = 0; i < n_perms; i++)
   {
-    num = method(perms[i], 0, N);
+    num = method(perms[i], 0, N - 1); /*Cambio, de N a N - 1*/
+    if(num == ERR)                    /*Comprobación por si falla el method*/
+    {
+      for(j = 0; j < n_perms; j++)
+        free(perms[j]);                      
+      free(perms);
+      return ERR;
+    }
     ptime->average_ob += num;
     if(i==0) {
       ptime->min_ob = num;
@@ -56,7 +63,7 @@ short average_sorting_time(pfunc_sort method, int n_perms, int N, PTIME_AA ptime
   }
   end = clock();
 
-  ptime->time = (double)(end - start) / CLOCKS_PER_SEC;
+  ptime->time = ((double)(end - start) / CLOCKS_PER_SEC) / n_perms; /*Añadido la división entre n_perms*/
 
   ptime->average_ob = ptime->average_ob / n_perms;
 
@@ -97,7 +104,7 @@ short generate_sorting_times(pfunc_sort method, char* file, int num_min, int num
 
   for (j = num_min; j <= num_max; j += incr, i++)
   {
-    if(average_sorting_time(method, n_perms, j, ptime+i) != OK) {
+    if(average_sorting_time(method, n_perms, j, ptime+i) != OK) {     
       free(ptime);
       return ERR;
     }

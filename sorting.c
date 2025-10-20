@@ -13,8 +13,8 @@
 #include <string.h>
 
 /***************************************************/
-/* Function: InsertSort Date:                      */
-/* Authors:                                        */
+/* Function: InsertSort Date:  12/10/25            */
+/* Authors: Pablo Plaza y Ernest Çelo              */
 /*                                                 */
 /* Sorts an array using the insertion sort method  */
 /*                                                 */
@@ -23,7 +23,8 @@
 /* int ip: initial position                        */
 /* int iu: final position                          */
 /* Output:                                         */
-/* int: number of swaps or ERR in case of error    */
+/* int:number of OB executions or ERR              */
+/* in case of error                                */
 /***************************************************/
 int InsertSort(int* array, int ip, int iu)
 {
@@ -61,8 +62,8 @@ return num;
 }
 
 /***************************************************/
-/* Function: BubbleSort Date:                      */
-/* Authors:                                        */
+/* Function: BubbleSort Date: 12/10/25             */
+/* Authors: Pablo Plaza y Ernest Çelo              */
 /*                                                 */
 /* Sorts an array using the bubble sort method     */
 /*                                                 */
@@ -76,6 +77,7 @@ return num;
 int BubbleSort(int* array, int ip, int iu)
 {
   int num = 0, i, j;
+  int swapped = 0;
 
   if (!array || ip > iu) return ERR;
 
@@ -86,7 +88,11 @@ int BubbleSort(int* array, int ip, int iu)
       num++;   
       if (array[j] > array[j + 1]) {
         swap_(&array[j], &array[j+ 1]);
+        swapped = 1;                               /*Comprobación de si el primero esta ordenado o no*/
       } 
+    }
+    if (swapped == 0) {
+      break;
     }
 }
 
@@ -94,8 +100,8 @@ int BubbleSort(int* array, int ip, int iu)
 }
 
 /***************************************************/
-/* Function: swap_ Date:                           */
-/* Authors:                                        */
+/* Function: swap_ Date: 12/10/25                  */
+/* Authors: Pablo Plaza y Ernest Çelo              */
 /*                                                 */
 /* Swaps the values of two integers                */
 /*                                                 */
