@@ -145,4 +145,3 @@ short save_time_table(char* file, PTIME_AA ptime, int n_times)
 
   return OK;
 }
-
