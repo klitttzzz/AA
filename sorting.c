@@ -37,15 +37,21 @@ int InsertSort(int* array, int ip, int iu)
     key = array[i];
     j = i - 1;
 
-    while(j >=ip && array[j] > key) 
+    while(j >=ip ) 
     {
-        swap_(&array[j], &array[j + 1]);
+      num++;
+      if(array[j] > key) 
+      {
+        array[j + 1] = array[j];
         j--;
-        num++;
+      } else break;
     }
-  }
+    array[j + 1] = key;
+    
+}
 
-  return num;
+return num;
+
 }
 
 /***************************************************/
@@ -71,11 +77,14 @@ int BubbleSort(int* array, int ip, int iu)
   {
     flag = 0;
     for (j = ip; j < iu - i - 1 ; j++)
+    {
+      num++;
       if (array[j] > array[j + 1]) {
         swap_(array+j, array+j+1);
-        num++;
+        
         flag = 1;
       }
+    }
     if(flag == 0) return num;
   }
     
