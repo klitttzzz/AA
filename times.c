@@ -45,7 +45,7 @@ short average_sorting_time(pfunc_sort method, int n_perms, int N, PTIME_AA ptime
   start = clock();
   for (i = 0; i < n_perms; i++)
   {
-    num = method(perms[i], 0, N ); /*Cambio, de N a N - 1*/
+    num = method(perms[i], 0, N - 1); /*Cambio, de N a N - 1*/
     if(num == ERR)                    /*Comprobación por si falla el method*/
     {
       for(j = 0; j < n_perms; j++)
