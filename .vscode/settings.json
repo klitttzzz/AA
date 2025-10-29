@@ -2,6 +2,7 @@
     "files.associations": {
         "sorting.h": "c",
         "stdio.h": "c",
-        "times.h": "c"
+        "times.h": "c",
+        "permutations.h": "c"
     }
 }
