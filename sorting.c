@@ -9,7 +9,6 @@
  *
  */
 
-
 #include "sorting.h"
 #include <string.h>
 
@@ -59,8 +58,8 @@ int InsertSort(int* array, int ip, int iu)
 return num;
 
 
+  return num;
 }
-
 
 /***************************************************/
 /* Function: BubbleSort Date: 12/10/25             */
@@ -117,9 +116,3 @@ void swap_(int *orig, int *dest) {
     *orig = *dest;
     *dest = aux;
 }
-
-
-
-
-
-
