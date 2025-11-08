@@ -47,20 +47,42 @@ int random_num(int inf, int sup)
 /***************************************************/
 int *generate_perm(int N)
 {
-  int i = 0, *perm = NULL, j = 0;
+  int i = 0, *perm = NULL, j = 1;
 
   perm = (int *)malloc(N * sizeof(perm[0]));
   if (perm == NULL)
     return NULL;
 
+  
   for (i = 0; i < N; i++)
     perm[i] = i+1;
-
-  for (i = 0; i < N; i++)
+  
+    for (i = 0; i < N; i++)
   {
     j = random_num(i, N - 1);
     swap(&perm[i], &perm[j]);
   }
+
+/* Caso peor de Merge sort 
+  int pos = 0;
+  int mitad = N / 2;
+
+    for (i = 0; i < mitad; i++) {
+        perm[pos++] = 2 * i + 1;
+        fprintf(f, "%d\n", perm[pos - 1]);
+    }
+
+
+    for (i = 0; i < N - mitad; i++) {
+        perm[pos++] = 2 * i + 2;
+        fprintf(f, "%d\n", perm[pos - 1]);
+    }
+
+
+    if (N % 2 != 0) {
+        perm[N - 1] = N;
+    }
+        */
 
   return perm;
 }
