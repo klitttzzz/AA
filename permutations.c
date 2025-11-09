@@ -119,4 +119,58 @@ void swap(int *orig, int *dest)
   int aux = *dest;
   *dest = *orig;
   *orig = aux;
+
+}
+
+int *generate_worst_case_mergesort(int N) {
+  int i;
+    int* perm = (int *)malloc(N * sizeof(int));
+    int* temp = (int *)malloc(N * sizeof(int)); 
+
+    if (perm == NULL || temp == NULL) {
+        free(perm);
+        free(temp);
+        return NULL;
+    }
+
+  
+    for (i = 0; i < N; i++) {
+        perm[i] = i + 1;
+    }
+
+    
+    build_worst_case_recursive(perm, temp, 0, N - 1);
+
+  
+    free(temp);
+    return perm;
+}
+
+void build_worst_case_recursive(int* S, int* T, int low, int high) {
+    if (low >= high) {
+        return; 
+    }
+
+    int mid = (low + high) / 2;
+    int i, k, j;
+
+   
+    k = low;
+    for (i = low; i <= high; i += 2) {
+        T[k++] = S[i];
+    }
+    
+    j = mid + 1;
+    for (i = low + 1; i <= high; i += 2) {
+        T[j++] = S[i];
+    }
+
+    
+    for (i = low; i <= high; i++) {
+        S[i] = T[i];
+    }
+
+   
+    build_worst_case_recursive(S, T, low, mid);
+    build_worst_case_recursive(S, T, mid + 1, high);
 }
