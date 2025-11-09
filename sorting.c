@@ -199,12 +199,12 @@ int quicksort(int *tabla, int ip, int iu)
     return 0;
   else
   {
-    partition(tabla, ip, iu, &M);
+    ob = partition(tabla, ip, iu, &M);
     if (ip < M - 1)
-      ob = quicksort(tabla, ip, M - 1);
+      ob += quicksort(tabla, ip, M - 1);
 
     if (M + 1 < iu)
-      ob = quicksort(tabla, M + 1, iu);
+      ob += quicksort(tabla, M + 1, iu);
   }
 
   return ob;
@@ -212,7 +212,7 @@ int quicksort(int *tabla, int ip, int iu)
 
 int partition(int *tabla, int ip, int iu, int *pos)
 {
-  int pivot = 0, i = 0;
+  int pivot = 0, i = 0, num = 0;
   median_stat(tabla, ip, iu, pos);
 
   pivot = tabla[*pos];
@@ -220,6 +220,7 @@ int partition(int *tabla, int ip, int iu, int *pos)
   *pos = ip;
   for (i = ip + 1; i <= iu; i++)
   {
+    num++;
     if (tabla[i] < pivot)
     {
       (*pos)++;
@@ -227,7 +228,7 @@ int partition(int *tabla, int ip, int iu, int *pos)
     }
   }
   swap_(tabla + ip, tabla + (*pos));
-  return 0;
+  return num;
 }
 int median(int *tabla, int ip, int iu, int *pos)
 {
