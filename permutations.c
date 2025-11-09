@@ -90,7 +90,7 @@ int **generate_permutations(int n_perms, int N)
 
   for (i = 0; i < n_perms; i++)
   {
-    perm[i] = generate_perm(N);
+    perm[i] = generate_worst_case_mergesort(N);
     if (!perm[i])
     {
       for (--i; i >= 0; i--)
@@ -174,3 +174,4 @@ void build_worst_case_recursive(int* S, int* T, int low, int high) {
     build_worst_case_recursive(S, T, low, mid);
     build_worst_case_recursive(S, T, mid + 1, high);
 }
+
