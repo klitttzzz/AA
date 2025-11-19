@@ -53,15 +53,18 @@ int *generate_perm(int N)
   if (perm == NULL)
     return NULL;
 
-  for (i = 0; i < N; i++)
+  
+  for (i = 0; i < N; i++) 
+  {
     perm[i] = i+1;
-
-  for (i = 0; i < N; i++)
+  }
+  
+    for (i = 0; i < N; i++)
   {
     j = random_num(i, N - 1);
     swap(&perm[i], &perm[j]);
   }
-
+  
   return perm;
 }
 
@@ -120,3 +123,4 @@ void swap(int *orig, int *dest)
   *dest = *orig;
   *orig = aux;
 }
+

@@ -15,6 +15,7 @@
 #include "times.h"
 #include "sorting.h"
 #include "permutations.h"
+#include "search.h"
 
 /***************************************************/ 
 /* Function: average_sorting_time Date:15/10/25    */ 
@@ -147,4 +148,94 @@ short save_time_table(char* file, PTIME_AA ptime, int n_times)
   fclose(f);
 
   return OK;
+}
+
+short average_search_time(pfunc_search metodo, pfunc_key_generator generator, int order, int N, int n_times, PTIME_AA ptime)
+{
+  int  i = 0, num = 0, *keys=NULL, *perm=NULL, *ppos = NULL;
+  PDICT pdict = NULL;
+  clock_t start, end;
+  
+  ptime->N = N;
+  ptime->n_elems = N * n_times;
+  ptime->average_ob = 0;
+
+  pdict = init_dictionary(N,order);
+  if (pdict == NULL) return ERR;
+
+  perm = generate_perm(N);
+  if (perm == NULL){
+    free_dictionary(pdict);
+    return 0;
+  }
+
+  massive_insertion_dictionary(pdict, perm, N);
+
+  keys = calloc(N*n_times, sizeof(int));
+
+  if (keys == NULL){
+    free_dictionary(pdict);
+    free(perm);
+    return 0;
+  }
+
+  generator(keys, ptime->n_elems, N);
+
+  start = clock();
+  for (i = 0; i < ptime->n_elems; i++)
+  {
+    num = search_dictionary(pdict, keys[i], ppos, metodo); 
+    if(num == ERR)                    
+    {
+      free_dictionary(pdict);
+      free(perm);
+      free(keys);
+      return ERR;
+    }
+    ptime->average_ob += num;
+    if(i==0) {
+      ptime->min_ob = num;
+      ptime->max_ob = num;
+    }
+    if(ptime->min_ob > num) ptime->min_ob = num;
+    if(ptime->max_ob < num) ptime->max_ob = num;
+  }
+  end = clock();
+
+  ptime->time = ((double)(end - start) / CLOCKS_PER_SEC) / ptime->n_elems;
+
+  ptime->average_ob = ptime->average_ob / ptime->n_elems;
+
+  free(perm);
+  free(keys);
+  free_dictionary(pdict);
+
+  return OK;
+}
+
+short generate_search_times(pfunc_search method, pfunc_key_generator generator, int order, char* file, int num_min, int num_max, int incr, int n_times)
+{
+  TIME_AA *ptime = NULL;
+  int i = 0, j = 0;
+  short res;
+
+  n_times = (((num_max - num_min)) / incr) + 1;
+
+  ptime = malloc(n_times * sizeof(TIME_AA));
+
+  if(!ptime) return ERR;
+
+  for (j = num_min; j <= num_max; j += incr, i++)
+  {
+    if(average_search_time(method, generator, order, j, n_times, ptime+i) != OK) {     
+      free(ptime);
+      return ERR;
+    }
+  }
+
+  res = save_time_table(file, ptime, n_times);
+  free(ptime);
+
+  return res;
+  
 }
