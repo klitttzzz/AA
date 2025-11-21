@@ -152,7 +152,7 @@ short save_time_table(char* file, PTIME_AA ptime, int n_times)
 
 short average_search_time(pfunc_search metodo, pfunc_key_generator generator, int order, int N, int n_times, PTIME_AA ptime)
 {
-  int  i = 0, num = 0, *keys=NULL, *perm=NULL, *ppos = NULL;
+  int  i = 0, num = 0, *keys=NULL, *perm=NULL, ppos = 0;
   PDICT pdict = NULL;
   clock_t start, end;
   
@@ -184,7 +184,7 @@ short average_search_time(pfunc_search metodo, pfunc_key_generator generator, in
   start = clock();
   for (i = 0; i < ptime->n_elems; i++)
   {
-    num = search_dictionary(pdict, keys[i], ppos, metodo); 
+    num = search_dictionary(pdict, keys[i], &ppos, metodo); 
     if(num == ERR)                    
     {
       free_dictionary(pdict);

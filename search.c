@@ -130,7 +130,7 @@ int massive_insertion_dictionary (PDICT pdict,int *keys, int n_keys)
 
 int search_dictionary(PDICT pdict, int key, int *ppos, pfunc_search method)
 {
-  return method(pdict->table, 0, pdict->n_data, key, ppos);
+  return method(pdict->table, 0, pdict->n_data-1, key, ppos);
   
 }
 
@@ -160,7 +160,7 @@ int bin_search(int *table,int F,int L,int key, int *ppos)
 int lin_search(int *table,int F,int L,int key, int *ppos)
 {
 	int i = 0, ob = 0;
-  for(i = F; i < L; i++) {
+  for(i = F; i <= L; i++) {
     ob++;
     if(table[i] == key) {
       *ppos = i;
@@ -173,7 +173,7 @@ int lin_search(int *table,int F,int L,int key, int *ppos)
 int lin_auto_search(int *table,int F,int L,int key, int *ppos)
 {
 	int i = 0, ob = 0, aux = 0;
-  for(i = F; i < L; i++) {
+  for(i = F; i <= L; i++) {
     ob++;
     if(table[i] == key) {
 
