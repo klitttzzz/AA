@@ -117,8 +117,21 @@ void swap_(int *orig, int *dest)
   *dest = aux;
 }
 
-int mergesort(int *tabla, int ip, int iu)
-{
+/***************************************************/
+/* Function: mergesort Date: 5/11/25               */
+/* Authors: Pablo Plaza y Ernest Çelo              */
+/*                                                 */
+/* Sorts an array using the merge sort method      */
+/*                                                 */
+/* Input:                                          */
+/* int* tabla: array to sort                       */
+/* int ip: initial position                        */
+/* int iu: final position                          */
+/* Output:                                         */
+/* int: number of OB executions or ERR             */
+/* in case of error                                */
+/***************************************************/
+int mergesort(int *tabla, int ip, int iu) {
   int imedio = (ip + iu) / 2, num = 0;
   if (!tabla)
   {
@@ -137,8 +150,22 @@ int mergesort(int *tabla, int ip, int iu)
   return num;
 }
 
-int merge(int *tabla, int ip, int iu, int imedio)
-{
+/***************************************************/
+/* Function: merge Date: 5/11/25                   */
+/* Authors: Pablo Plaza y Ernest Çelo              */
+/*                                                 */
+/* Sorts an array using the merge sort method      */
+/*                                                 */
+/* Input:                                          */
+/* int* tabla: array to sort                       */
+/* int ip: initial position                        */
+/* int iu: final position                          */
+/* int imedio: medium position                     */
+/* Output:                                         */
+/* int: number of OB executions or ERR             */
+/* in case of error                                */
+/***************************************************/
+int merge(int* tabla, int ip, int iu, int imedio) {
   int *tabaux = NULL, i = ip, j = imedio + 1, k = 0, num = 0;
 
   tabaux = (int *)malloc((iu - ip + 1) * sizeof(int));
@@ -186,67 +213,131 @@ int merge(int *tabla, int ip, int iu, int imedio)
   free(tabaux);
   return num;
 }
-
-int quicksort(int *tabla, int ip, int iu)
-{
+/***************************************************/
+/* Function: quicksort Date: 5/11/25               */
+/* Authors: Pablo Plaza y Ernest Çelo              */
+/*                                                 */
+/* Sorts an array using the quick sort method      */
+/*                                                 */
+/* Input:                                          */
+/* int* tabla: array to sort                       */
+/* int ip: initial position                        */
+/* int iu: final position                          */
+/* Output:                                         */
+/* int: number of OB executions or ERR             */
+/* in case of error                                */
+/***************************************************/
+int quicksort(int *tabla, int ip, int iu) {
   int M = 0, ob = 0;
-  if (ip > iu)
-  {
-    return ERR;
+  if(ip > iu) {
+    return 0;
   }
 
   if (ip == iu)
     return 0;
-  else
-  {
-    ob = partition(tabla, ip, iu, &M);
+  else {
+    ob += partition(tabla, ip, iu, &M);
     if (ip < M - 1)
       ob += quicksort(tabla, ip, M - 1);
-
-    if (M + 1 < iu)
+    
+    if(M + 1 < iu) 
       ob += quicksort(tabla, M + 1, iu);
   }
 
   return ob;
 }
-
-int partition(int *tabla, int ip, int iu, int *pos)
-{
-  int pivot = 0, i = 0, num = 0;
-  num = median_stat(tabla, ip, iu, pos);
-
+/***************************************************/
+/* Function: partition Date: 5/11/25               */
+/* Authors: Pablo Plaza y Ernest Çelo              */
+/*                                                 */
+/* Sorts an array using the partitions             */
+/*                                                 */
+/* Input:                                          */
+/* int* tabla: array to sort                       */
+/* int ip: initial position                        */
+/* int iu: final position                          */
+/* int pos: position of the pivot                  */
+/* Output:                                         */
+/* int: number of OB executions or ERR             */
+/* in case of error                                */
+/***************************************************/
+int partition(int* tabla, int ip, int iu,int *pos) {
+  int pivot = 0, i = 0, ob = 0;
+  ob = median(tabla, ip, iu, pos);
+  /*ob = median_avg(tabla, ip, iu, pos);*/
+  /*ob = median_stat(tabla, ip, iu, pos);*/
+  
   pivot = tabla[*pos];
   swap_(tabla + ip, tabla + (*pos));
   *pos = ip;
-  for (i = ip + 1; i <= iu; i++)
-  {
-    num++;
-    if (tabla[i] < pivot)
-    {
+  for(i = ip + 1; i <= iu; i++) {
+    ob++;
+    if(tabla[i]< pivot) {
       (*pos)++;
       swap_(tabla + i, tabla + (*pos));
     }
   }
-  swap_(tabla + ip, tabla + (*pos));
-  return num;
+  swap_(tabla+ip, tabla+(*pos));
+  return ob;
+
+
 }
-int median(int *tabla, int ip, int iu, int *pos)
-{
+/***************************************************/
+/* Function: median    Date: 5/11/25               */
+/* Authors: Pablo Plaza y Ernest Çelo              */
+/*                                                 */
+/* Select the first position as the pivot position */
+/*                                                 */
+/* Input:                                          */
+/* int* tabla: array to sort                       */
+/* int ip: initial position                        */
+/* int iu: final position                          */
+/* int pos: position of the pivot                  */
+/* Output:                                         */
+/* int 0                                           */
+/***************************************************/
+int median(int *tabla,int ip, int iu,int *pos){
   *pos = ip;
   return 0;
 }
-int median_avg(int *tabla, int ip, int iu, int *pos)
-{
-  *pos = (ip + iu) / 2;
+/***************************************************/
+/* Function: median    Date: 5/11/25               */
+/* Authors: Pablo Plaza y Ernest Çelo              */
+/*                                                 */
+/* Select the medium position as the pivot position*/
+/*                                                 */
+/* Input:                                          */
+/* int* tabla: array to sort                       */
+/* int ip: initial position                        */
+/* int iu: final position                          */
+/* int pos: position of the pivot                  */
+/* Output:                                         */
+/* int 0                                           */
+/***************************************************/
+int median_avg(int *tabla, int ip, int iu, int *pos) {
+  *pos = (ip + iu) /2;
   return 0;
 }
-int median_stat(int *tabla, int ip, int iu, int *pos)
-{
-  if (tabla[ip] < tabla[iu] && tabla[ip] > tabla[(ip + iu) / 2])
+/***************************************************/
+/* Function: median_stat  Date: 5/11/25            */
+/* Authors: Pablo Plaza y Ernest Çelo              */
+/*                                                 */
+/* Select the first, medium or last position       */
+/* as the pivot position                           */
+/*                                                 */
+/* Input:                                          */
+/* int* tabla: array to sort                       */
+/* int ip: initial position                        */
+/* int iu: final position                          */
+/* int pos: position of the pivot                  */
+/* Output:                                         */
+/* int 0                                           */
+/***************************************************/
+int median_stat(int *tabla, int ip, int iu, int *pos) {
+  if(tabla[ip] < tabla[iu] && tabla[ip] > tabla[(ip + iu) / 2]) 
     *pos = ip;
-  else if (tabla[iu] < tabla[ip] && tabla[iu] > tabla[(ip + iu) / 2])
+  else if(tabla[iu] < tabla[ip] && tabla[iu] > tabla[(ip + iu) / 2]) 
     *pos = iu;
-  else
-    *pos = (ip + iu) / 2;
+  else *pos = (ip + iu) /2;
   return 3;
 }

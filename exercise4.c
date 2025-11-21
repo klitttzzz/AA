@@ -48,8 +48,11 @@ int main(int argc, char** argv)
     printf("Error: Out of memory\n");
     exit(-1);
   }
-
-  ret = quicksort(perm, 0, tamano-1);
+  for(i = 0; i < tamano; i++) {
+    printf("%d ", perm[i]);
+  }
+  printf("\n");
+  ret = mergesort(perm, 0, tamano-1);
 
   if (ret == ERR) {
     printf("Error: Error in BubbleSort\n");
