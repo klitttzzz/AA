@@ -47,7 +47,7 @@ int random_num(int inf, int sup)
 /***************************************************/
 int *generate_perm(int N)
 {
-  int i = 0, *perm = NULL, j = 0;
+  int i = 0, *perm = NULL, j = 1;
 
   perm = (int *)malloc(N * sizeof(perm[0]));
   if (perm == NULL)
@@ -93,7 +93,7 @@ int **generate_permutations(int n_perms, int N)
 
   for (i = 0; i < n_perms; i++)
   {
-    perm[i] = generate_perm(N);
+    perm[i] = generate_worst_case_mergesort(N);
     if (!perm[i])
     {
       for (--i; i >= 0; i--)
