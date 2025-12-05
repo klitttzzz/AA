@@ -1,0 +1,28 @@
+# Configuración de salida
+set terminal pngcairo size 1200,800 enhanced font 'Verdana,10'
+set output 'comparativa_potencial_OB.png'
+
+# Títulos
+set title "Búsqueda Auto-organizada vs Binaria (Distribución Potencial)"
+set xlabel "Tamaño del Diccionario (N)"
+set ylabel "Número medio de OBs"
+set grid
+set key right bottom box
+
+# Usamos escala logarítmica en Y porque la diferencia entre K=1 y Binaria es enorme
+set logscale y 
+
+# --- AJUSTE BINARIA (Solo ajustamos binaria como referencia) ---
+f_bin(x) = a_bin * log(x) + b_bin
+a_bin = 1.0; b_bin = 1.0;
+# Asegúrate de tener el archivo bin_potencial.dat generado
+fit f_bin(x) 'bin_potencial.dat' using 1:3 via a_bin, b_bin
+
+# --- GRÁFICA ---
+# Nota: La auto-organizada no se suele "ajustar" con una fórmula simple, 
+# se muestran los datos crudos para ver la convergencia.
+plot 'bin_potencial.dat' using 1:3 title 'Binaria (Ordenada)' with lines lw 3 lc rgb "black", \
+     f_bin(x) title 'Ajuste Binaria' with lines dt 2 lw 2 lc rgb "gray", \
+     'auto_1.dat' using 1:3 title 'Auto-Search (n\_times=1)' with lines lw 2 lc rgb "red", \
+     'auto_100.dat' using 1:3 title 'Auto-Search (n\_times=100)' with lines lw 2 lc rgb "orange", \
+     'auto_10000.dat' using 1:3 title 'Auto-Search (n\_times=10000)' with lines lw 2 lc rgb "green"

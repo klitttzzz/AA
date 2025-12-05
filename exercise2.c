@@ -48,8 +48,8 @@ int main(int argc, char** argv)
   }
 
   printf("Practice number 3, section 2\n");
-  printf("Done by: Your names\n");
-  printf("Group: Your group\n");
+  printf("Done by: Pablo Plaza y Ernest Çelo\n");
+  printf("Group: Miercoles\n");
 
   /* check the command line */
   for(i = 1; i < argc ; i++) {

@@ -149,7 +149,23 @@ short save_time_table(char* file, PTIME_AA ptime, int n_times)
 
   return OK;
 }
-
+/***************************************************/ 
+/* Function: average_search_time Date: 21/11/25    */ 
+/* Authors: Pablo Plaza y Ernest Çelo              */ 
+/*                                                 */ 
+/* Calculates the average time and basic ops for   */ 
+/* searching keys in a dictionary of size N        */ 
+/*                                                 */ 
+/* Input:                                          */ 
+/* pfunc_search metodo: search function pointer    */ 
+/* pfunc_key_generator generator: key gen. pointer */ 
+/* int order: sort order (SORTED/NOT_SORTED)       */ 
+/* int N: size of the dictionary                   */ 
+/* int n_times: repetitions per key search         */ 
+/* PTIME_AA ptime: structure to store results      */ 
+/* Output:                                         */ 
+/* short: OK or ERR                                */ 
+/***************************************************/
 short average_search_time(pfunc_search metodo, pfunc_key_generator generator, int order, int N, int n_times, PTIME_AA ptime)
 {
   int  i = 0, num = 0, *keys=NULL, *perm=NULL, ppos = 0;
@@ -166,17 +182,21 @@ short average_search_time(pfunc_search metodo, pfunc_key_generator generator, in
   perm = generate_perm(N);
   if (perm == NULL){
     free_dictionary(pdict);
-    return 0;
+    return ERR;
   }
 
-  massive_insertion_dictionary(pdict, perm, N);
+  if(massive_insertion_dictionary(pdict, perm, N) == ERR) {
+    free_dictionary(pdict);
+    free(perm);
+    return ERR;
+  }
 
-  keys = calloc(N*n_times, sizeof(int));
+  keys = calloc(ptime->n_elems, sizeof(int));
 
   if (keys == NULL){
     free_dictionary(pdict);
     free(perm);
-    return 0;
+    return ERR;
   }
 
   generator(keys, ptime->n_elems, N);
@@ -213,17 +233,37 @@ short average_search_time(pfunc_search metodo, pfunc_key_generator generator, in
   return OK;
 }
 
+/***************************************************/ 
+/* Function: generate_search_times Date: 21/11/25  */ 
+/* Authors: Pablo Plaza y Ernest Çelo              */ 
+/*                                                 */ 
+/* Generates a file with performance statistics    */ 
+/* for the search algorithm over a range of sizes  */ 
+/*                                                 */ 
+/* Input:                                          */ 
+/* pfunc_search method: search function pointer    */ 
+/* pfunc_key_generator generator: key gen. pointer */ 
+/* int order: sort order (SORTED/NOT_SORTED)       */ 
+/* char* file: output filename                     */ 
+/* int num_min: minimum dictionary size            */ 
+/* int num_max: maximum dictionary size            */ 
+/* int incr: increment step for size               */ 
+/* int n_times: repetitions per key search         */ 
+/* Output:                                         */ 
+/* short: OK or ERR                                */ 
+/***************************************************/
 short generate_search_times(pfunc_search method, pfunc_key_generator generator, int order, char* file, int num_min, int num_max, int incr, int n_times)
 {
   TIME_AA *ptime = NULL;
   int i = 0, j = 0;
   short res;
+  int num_steps = 0;
 
-  n_times = (((num_max - num_min)) / incr) + 1;
+  num_steps = (((num_max - num_min)) / incr) + 1;
 
-  ptime = malloc(n_times * sizeof(TIME_AA));
+  ptime = malloc(num_steps * sizeof(TIME_AA));
 
-  if(!ptime) return ERR;
+  if(ptime == NULL) return ERR;
 
   for (j = num_min; j <= num_max; j += incr, i++)
   {
@@ -233,7 +273,7 @@ short generate_search_times(pfunc_search method, pfunc_key_generator generator, 
     }
   }
 
-  res = save_time_table(file, ptime, n_times);
+  res = save_time_table(file, ptime, num_steps);
   free(ptime);
 
   return res;

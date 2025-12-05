@@ -912,3 +912,712 @@ correlation matrix of the fit parameters:
                 a      b      
 a               1.000 
 b              -0.868  1.000 
+
+
+*******************************************************************************
+Wed Dec  3 18:46:09 2025
+
+
+FIT:    data read from 'lin_uniform.dat' using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_lin(x)
+	f_lin(x) = a_lin * x + b_lin
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a_lin         b_lin        
+   0 1.7941701900e+08   0.00e+00  4.34e+03    1.000000e+00   1.000000e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Dec  3 18:46:09 2025
+
+
+FIT:    data read from 'bin_uniform.dat' using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_bin(x)
+	f_bin(x) = a_bin * log(x) + b_bin
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a_bin         b_bin        
+   0 1.7829547436e+08   0.00e+00  6.03e+00    1.000000e+00   1.000000e+00
+   5 3.0339868514e+06  -5.43e-05  6.03e-05    2.039794e+03  -1.447157e+04
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 3.03399e+06
+rel. change during last iteration : -5.42792e-10
+
+degrees of freedom    (FIT_NDF)                        : 17
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 422.457
+variance of residuals (reduced chisquare) = WSSR/ndf   : 178470
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a_bin           = 2039.79          +/- 150.9        (7.4%)
+b_bin           = -14471.6         +/- 1278         (8.832%)
+
+correlation matrix of the fit parameters:
+                a_bin  b_bin  
+a_bin           1.000 
+b_bin          -0.997  1.000 
+
+
+*******************************************************************************
+Wed Dec  3 18:46:09 2025
+
+
+FIT:    data read from 'lin_uniform.dat' using 1:2
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: ft_lin(x)
+	ft_lin(x) = a_lin_t * x + b_lin_t
+fitted parameters initialized with current variable values
+
+Warning: Initial value of parameter 'b_lin_t' is zero.
+iter      chisq       delta/lim  lambda   a_lin_t       b_lin_t      
+   0 7.1724170002e+00   0.00e+00  4.34e-01    1.000000e-04   1.000000e-30
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Dec  3 18:46:09 2025
+
+
+FIT:    data read from 'bin_uniform.dat' using 1:2
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: ft_bin(x)
+	ft_bin(x) = a_bin_t * log(x) + b_bin_t
+fitted parameters initialized with current variable values
+
+Warning: Initial value of parameter 'b_bin_t' is zero.
+iter      chisq       delta/lim  lambda   a_bin_t       b_bin_t      
+   0 1.3517071770e-05   0.00e+00  5.99e-04    1.000000e-04   1.000000e-30
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Dec  3 18:48:40 2025
+
+
+FIT:    data read from 'lin_uniform.dat' using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_lin(x)
+	f_lin(x) = a_lin * x + b_lin
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a_lin         b_lin        
+   0 1.7941701900e+08   0.00e+00  4.34e+03    1.000000e+00   1.000000e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Dec  3 18:48:40 2025
+
+
+FIT:    data read from 'bin_uniform.dat' using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_bin(x)
+	f_bin(x) = a_bin * log(x) + b_bin
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a_bin         b_bin        
+   0 1.7829547436e+08   0.00e+00  6.03e+00    1.000000e+00   1.000000e+00
+   5 3.0339868514e+06  -5.43e-05  6.03e-05    2.039794e+03  -1.447157e+04
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 3.03399e+06
+rel. change during last iteration : -5.42792e-10
+
+degrees of freedom    (FIT_NDF)                        : 17
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 422.457
+variance of residuals (reduced chisquare) = WSSR/ndf   : 178470
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a_bin           = 2039.79          +/- 150.9        (7.4%)
+b_bin           = -14471.6         +/- 1278         (8.832%)
+
+correlation matrix of the fit parameters:
+                a_bin  b_bin  
+a_bin           1.000 
+b_bin          -0.997  1.000 
+
+
+*******************************************************************************
+Wed Dec  3 18:48:40 2025
+
+
+FIT:    data read from 'lin_uniform.dat' using 1:2
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: ft_lin(x)
+	ft_lin(x) = a_lin_t * x + b_lin_t
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a_lin_t       b_lin_t      
+   0 7.1737600942e-02   0.00e+00  4.34e-02    1.000000e-05   1.000000e-05
+   7 1.8245614035e-12  -8.30e-03  4.34e-09    5.964912e-10  -1.228070e-07
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 1.82456e-12
+rel. change during last iteration : -8.30327e-08
+
+degrees of freedom    (FIT_NDF)                        : 17
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 3.27608e-07
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1.07327e-13
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a_lin_t         = 5.96491e-10      +/- 2.744e-11    (4.601%)
+b_lin_t         = -1.22807e-07     +/- 1.686e-07    (137.3%)
+
+correlation matrix of the fit parameters:
+                a_lin_ b_lin_ 
+a_lin_t         1.000 
+b_lin_t        -0.895  1.000 
+
+
+*******************************************************************************
+Wed Dec  3 18:48:40 2025
+
+
+FIT:    data read from 'bin_uniform.dat' using 1:2
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: ft_bin(x)
+	ft_bin(x) = a_bin_t * log(x) + b_bin_t
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a_bin_t       b_bin_t      
+   0 1.5875010080e-07   0.00e+00  6.03e-05    1.000000e-05   1.000000e-05
+   5 6.5126399244e-12  -7.31e-05  6.03e-10    2.260173e-06  -1.592429e-05
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 6.51264e-12
+rel. change during last iteration : -7.30847e-10
+
+degrees of freedom    (FIT_NDF)                        : 17
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 6.18948e-07
+variance of residuals (reduced chisquare) = WSSR/ndf   : 3.83096e-13
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a_bin_t         = 2.26017e-06      +/- 2.212e-07    (9.785%)
+b_bin_t         = -1.59243e-05     +/- 1.873e-06    (11.76%)
+
+correlation matrix of the fit parameters:
+                a_bin_ b_bin_ 
+a_bin_t         1.000 
+b_bin_t        -0.997  1.000 
+
+
+*******************************************************************************
+Wed Dec  3 18:51:33 2025
+
+
+FIT:    data read from 'lin_uniform.dat' using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_lin(x)
+	f_lin(x) = a_lin * x + b_lin
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a_lin         b_lin        
+   0 1.7941701900e+08   0.00e+00  4.34e+03    1.000000e+00   1.000000e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Dec  3 18:51:33 2025
+
+
+FIT:    data read from 'bin_uniform.dat' using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_bin(x)
+	f_bin(x) = a_bin * log(x) + b_bin
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a_bin         b_bin        
+   0 1.7829547436e+08   0.00e+00  6.03e+00    1.000000e+00   1.000000e+00
+   5 3.0339868514e+06  -5.43e-05  6.03e-05    2.039794e+03  -1.447157e+04
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 3.03399e+06
+rel. change during last iteration : -5.42792e-10
+
+degrees of freedom    (FIT_NDF)                        : 17
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 422.457
+variance of residuals (reduced chisquare) = WSSR/ndf   : 178470
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a_bin           = 2039.79          +/- 150.9        (7.4%)
+b_bin           = -14471.6         +/- 1278         (8.832%)
+
+correlation matrix of the fit parameters:
+                a_bin  b_bin  
+a_bin           1.000 
+b_bin          -0.997  1.000 
+
+
+*******************************************************************************
+Wed Dec  3 18:51:33 2025
+
+
+FIT:    data read from 'lin_uniform.dat' using 1:2
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: ft_lin(x)
+	ft_lin(x) = a_lin_t * x + b_lin_t
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a_lin_t       b_lin_t      
+   0 7.1737600942e-02   0.00e+00  4.34e-02    1.000000e-05   1.000000e-05
+   7 1.8245614035e-12  -8.30e-03  4.34e-09    5.964912e-10  -1.228070e-07
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 1.82456e-12
+rel. change during last iteration : -8.30327e-08
+
+degrees of freedom    (FIT_NDF)                        : 17
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 3.27608e-07
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1.07327e-13
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a_lin_t         = 5.96491e-10      +/- 2.744e-11    (4.601%)
+b_lin_t         = -1.22807e-07     +/- 1.686e-07    (137.3%)
+
+correlation matrix of the fit parameters:
+                a_lin_ b_lin_ 
+a_lin_t         1.000 
+b_lin_t        -0.895  1.000 
+
+
+*******************************************************************************
+Wed Dec  3 18:51:33 2025
+
+
+FIT:    data read from 'bin_uniform.dat' using 1:2
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: ft_bin(x)
+	ft_bin(x) = a_bin_t * log(x) + b_bin_t
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a_bin_t       b_bin_t      
+   0 1.5875010080e-07   0.00e+00  6.03e-05    1.000000e-05   1.000000e-05
+   5 6.5126399244e-12  -7.31e-05  6.03e-10    2.260173e-06  -1.592429e-05
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 6.51264e-12
+rel. change during last iteration : -7.30847e-10
+
+degrees of freedom    (FIT_NDF)                        : 17
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 6.18948e-07
+variance of residuals (reduced chisquare) = WSSR/ndf   : 3.83096e-13
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a_bin_t         = 2.26017e-06      +/- 2.212e-07    (9.785%)
+b_bin_t         = -1.59243e-05     +/- 1.873e-06    (11.76%)
+
+correlation matrix of the fit parameters:
+                a_bin_ b_bin_ 
+a_bin_t         1.000 
+b_bin_t        -0.997  1.000 
+
+
+*******************************************************************************
+Wed Dec  3 19:12:58 2025
+
+
+FIT:    data read from 'lin_uniform.dat' using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_lin(x)
+	f_lin(x) = a_lin * x + b_lin
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a_lin         b_lin        
+   0 1.7941701900e+08   0.00e+00  4.34e+03    1.000000e+00   1.000000e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Dec  3 19:12:58 2025
+
+
+FIT:    data read from 'bin_uniform.dat' using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_bin(x)
+	f_bin(x) = a_bin * log(x) + b_bin
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a_bin         b_bin        
+   0 6.5258393834e+01   0.00e+00  6.03e+00    1.000000e+00   1.000000e+00
+   5 1.3136437301e+00  -8.54e-07  6.03e-05    1.354485e+00  -1.724897e-01
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 1.31364
+rel. change during last iteration : -8.53701e-12
+
+degrees of freedom    (FIT_NDF)                        : 17
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.277981
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0772732
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a_bin           = 1.35449          +/- 0.09932      (7.333%)
+b_bin           = -0.17249         +/- 0.841        (487.6%)
+
+correlation matrix of the fit parameters:
+                a_bin  b_bin  
+a_bin           1.000 
+b_bin          -0.997  1.000 
+
+
+*******************************************************************************
+Wed Dec  3 19:12:58 2025
+
+
+FIT:    data read from 'lin_uniform.dat' using 1:2
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: ft_lin(x)
+	ft_lin(x) = a_lin_t * x + b_lin_t
+fitted parameters initialized with current variable values
+
+Warning: Initial value of parameter 'b_lin_t' is zero.
+iter      chisq       delta/lim  lambda   a_lin_t       b_lin_t      
+   0 7.1724158002e+00   0.00e+00  4.34e-01    1.000000e-04   1.000000e-30
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Dec  3 19:12:58 2025
+
+
+FIT:    data read from 'bin_uniform.dat' using 1:2
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: ft_bin(x)
+	ft_bin(x) = a_bin_t * log(x) + b_bin_t
+fitted parameters initialized with current variable values
+
+Warning: Initial value of parameter 'b_bin_t' is zero.
+iter      chisq       delta/lim  lambda   a_bin_t       b_bin_t      
+   0 1.3621690114e-05   0.00e+00  5.99e-04    1.000000e-04   1.000000e-30
+2799 6.9268003547e-321 -nan       5.99e-21   2.974736e-161 -2.511789e-160
+
+After 279948 iterations the fit converged.
+final sum of squares of residuals : 6.9268e-321
+abs. change during last iteration : 0
+
+
+Hmmmm.... Sum of squared residuals is zero. Can't compute errors.
+
+Final set of parameters 
+======================= 
+
+a_bin_t         = 2.97474e-161   
+b_bin_t         = -2.51179e-160  
+
+
+*******************************************************************************
+Wed Dec  3 19:15:40 2025
+
+
+FIT:    data read from 'lin_uniform.dat' using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_lin(x)
+	f_lin(x) = a_lin * x + b_lin
+fitted parameters initialized with current variable values
+
+Warning: Initial value of parameter 'b_lin' is zero.
+iter      chisq       delta/lim  lambda   a_lin         b_lin        
+   0 0.0000000000e+00  -nan       2.17e+03    5.000000e-01   1.000000e-30
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Dec  3 19:15:40 2025
+
+
+FIT:    data read from 'bin_uniform.dat' using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_bin(x)
+	f_bin(x) = a_bin * log(x) + b_bin
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a_bin         b_bin        
+   0 6.5258393834e+01   0.00e+00  6.03e+00    1.000000e+00   1.000000e+00
+   5 1.3136437301e+00  -8.54e-07  6.03e-05    1.354485e+00  -1.724897e-01
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 1.31364
+rel. change during last iteration : -8.53701e-12
+
+degrees of freedom    (FIT_NDF)                        : 17
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.277981
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0772732
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a_bin           = 1.35449          +/- 0.09932      (7.333%)
+b_bin           = -0.17249         +/- 0.841        (487.6%)
+
+correlation matrix of the fit parameters:
+                a_bin  b_bin  
+a_bin           1.000 
+b_bin          -0.997  1.000 
+
+
+*******************************************************************************
+Wed Dec  3 19:15:40 2025
+
+
+FIT:    data read from 'lin_uniform.dat' using 1:2
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: ft_lin(x)
+	ft_lin(x) = a_lin_t * x + b_lin_t
+fitted parameters initialized with current variable values
+
+Warning: Initial value of parameter 'b_lin_t' is zero.
+iter      chisq       delta/lim  lambda   a_lin_t       b_lin_t      
+   0 7.1640824900e-04   0.00e+00  4.34e-03    1.000000e-06   1.000000e-30
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Dec  3 19:15:40 2025
+
+
+FIT:    data read from 'bin_uniform.dat' using 1:2
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: ft_bin(x)
+	ft_bin(x) = a_bin_t * log(x) + b_bin_t
+fitted parameters initialized with current variable values
+
+Warning: Initial value of parameter 'b_bin_t' is zero.
+iter      chisq       delta/lim  lambda   a_bin_t       b_bin_t      
+   0 1.3621690114e-09   0.00e+00  5.99e-06    1.000000e-06   1.000000e-30
+   9 3.5598572650e-63  -6.67e-01  5.99e-05    2.123903e-32  -1.804966e-31
+
+After 9 iterations the fit converged.
+final sum of squares of residuals : 3.55986e-63
+abs. change during last iteration : -2.37288e-68
+
+
+Hmmmm.... Sum of squared residuals is zero. Can't compute errors.
+
+Final set of parameters 
+======================= 
+
+a_bin_t         = 2.1239e-32     
+b_bin_t         = -1.80497e-31   
+
+
+*******************************************************************************
+Wed Dec  3 19:16:29 2025
+
+
+FIT:    data read from 'bin_potencial.dat' using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_bin(x)
+	f_bin(x) = a_bin * log(x) + b_bin
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a_bin         b_bin        
+   0 7.7155234686e+01   0.00e+00  6.03e+00    1.000000e+00   1.000000e+00
+   5 1.6500532969e+00  -7.80e-07  6.03e-05    1.382978e+00  -2.551558e-01
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 1.65005
+rel. change during last iteration : -7.79526e-12
+
+degrees of freedom    (FIT_NDF)                        : 17
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.311548
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.097062
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a_bin           = 1.38298          +/- 0.1113       (8.049%)
+b_bin           = -0.255156        +/- 0.9425       (369.4%)
+
+correlation matrix of the fit parameters:
+                a_bin  b_bin  
+a_bin           1.000 
+b_bin          -0.997  1.000 
+
+
+*******************************************************************************
+Fri Dec  5 11:57:10 2025
+
+
+FIT:    data read from "lineal_uniforme.dat" using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_lineal(x)
+	f_lineal(x) = a1 * x + b1
+fitted parameters initialized with current variable values
+
+Warning: Initial value of parameter 'b1' is zero.
+iter      chisq       delta/lim  lambda   a1            b1           
+   0 0.0000000000e+00  -nan       2.17e+03    5.000000e-01   1.000000e-30
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Fri Dec  5 11:57:10 2025
+
+
+FIT:    data read from "binaria_uniforme.dat" using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_binaria(x)
+	f_binaria(x) = a2 * log(x) + b2
+fitted parameters initialized with current variable values
+
+Warning: Initial value of parameter 'b2' is zero.
+iter      chisq       delta/lim  lambda   a2            b2           
+   0 1.5343205317e+02   0.00e+00  5.99e+00    1.000000e+00   1.000000e-30
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Fri Dec  5 12:02:18 2025
+
+
+FIT:    data read from "lineal_uniforme.dat" using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_lineal(x)
+	f_lineal(x) = a1 * x + b1
+fitted parameters initialized with current variable values
+
+Warning: Initial value of parameter 'b1' is zero.
+iter      chisq       delta/lim  lambda   a1            b1           
+   0 0.0000000000e+00  -nan       2.17e+03    5.000000e-01   1.000000e-30
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Fri Dec  5 12:02:18 2025
+
+
+FIT:    data read from "binaria_uniforme.dat" using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_binaria(x)
+	f_binaria(x) = a2 * log(x) + b2
+fitted parameters initialized with current variable values
+
+Warning: Initial value of parameter 'b2' is zero.
+iter      chisq       delta/lim  lambda   a2            b2           
+   0 1.5343205317e+02   0.00e+00  5.99e+00    1.000000e+00   1.000000e-30
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Fri Dec  5 12:04:53 2025
+
+
+FIT:    data read from "binaria_uniforme.dat" using 1:3
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_binaria_fit(x)
+	f_binaria_fit(x) = a * log(x) + b
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 1.5825116159e+00   0.00e+00  8.65e+00    1.440000e+00  -1.000000e+00
+   5 1.3136437301e+00  -8.54e-06  8.65e-05    1.354485e+00  -1.724897e-01
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 1.31364
+rel. change during last iteration : -8.54105e-11
+
+degrees of freedom    (FIT_NDF)                        : 17
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.277981
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0772732
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 1.35449          +/- 0.09932      (7.333%)
+b               = -0.17249         +/- 0.841        (487.6%)
+
+correlation matrix of the fit parameters:
+                a      b      
+a               1.000 
+b              -0.997  1.000 
+
+
+*******************************************************************************
+Fri Dec  5 12:07:51 2025
+
+
+FIT:    data read from "lineal_uniforme.dat" using 1:2
+        format = x:z
+        #datapoints = 19
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f_lineal(x)
+	f_lineal(x) = m * x + c
+fitted parameters initialized with current variable values
+
+Warning: Initial value of parameter 'c' is zero.
+iter      chisq       delta/lim  lambda   m             c            
+   0 1.7525000000e-12   0.00e+00  3.04e-06    7.000000e-10   1.000000e-30
+BREAK: Singular matrix in Invert_RtR
